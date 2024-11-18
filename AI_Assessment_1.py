@@ -1,15 +1,16 @@
 import pandas as pd
-from sklearn.metrics import f1_score, precision_score, recall_score, classification_report
+from sklearn.metrics import f1_score, classification_report
 
 #load dataset
 file_path = 'fertility_Diagnosis.txt'
 #create a dataFrame for the dataset
-columns [
+columns = [
     'Season', 'Age', 'Childish_disease', 'Serious_accident', 'Surgical_intervention', 'Fevers', 'Alcohol_consumption', 'Smoking_habit', 'Num_of_hours_sitting', 'Diagnosis'
 ]
 #load dataset
 data = pd.read_csv(file_path, header=None, names=columns)
-
+#prints the first 5 rows from txt file
+print("First five rows of dataset:")
 print(data.head())
 
 class FertilityInferenceEngine:
@@ -33,16 +34,16 @@ rules = [
         'condition': lambda facts: facts['Alcohol_consumption'] <=0.6, 'conclusion': 'N'
     },
      {
-        'condition': lambda facts: facts['Alcohol_consumption'] >6, 'conclusion': 'O'
+        'condition': lambda facts: facts['Alcohol_consumption'] >=6, 'conclusion': 'O'
     },
      {
         'condition': lambda facts: facts['Smoking_habit'] >=0, 'conclusion': 'O'
     },
      {
-        'condition': lambda facts: facts['Serious_accident'] =0, 'conclusion': 'O'
+        'condition': lambda facts: facts['Serious_accident'] ==0, 'conclusion': 'O'
     },
      {
-        'condition': lambda facts: facts['Surgical_intervention'] =0, 'conclusion': 'N'
+        'condition': lambda facts: facts['Surgical_intervention'] ==0, 'conclusion': 'N'
     },
 ]
 
