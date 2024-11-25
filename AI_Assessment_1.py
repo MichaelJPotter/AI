@@ -16,6 +16,9 @@ print("First five rows of dataset:")
 print(data.head())
 
 # Forward chaining engine
+#ChatGPT: create a forward chaining AI system using python for vscode which will aim to predict whether a person will have normal or altered fertility from data provided by a dataset
+#ChatGPT: it does not need machine learning however i must be able to analyse the F1 score of the algorithm
+
 class FertilityInferenceEngine:
     def __init__(self, rules):
         self.rules = rules
@@ -67,10 +70,10 @@ rules = [
     {'condition': lambda facts: facts['Season'] == -1, 'weight': 2, 'conclusion': 'N'},
     {'condition': lambda facts: facts['Smoking_habit'] == -1 and facts['Alcohol_consumption'] <= 0.3, 'weight': 3, 'conclusion': 'N'},
     {'condition': lambda facts: facts['Alcohol_consumption'] <= 0.4, 'weight': 3, 'conclusion': 'N'},
-    {'condition': lambda facts: facts['Smoking_habit'] == -1, 'weight': 3, 'conclusion': 'N'},
-    {'condition': lambda facts: facts['Num_of_hours_sitting'] <= 0.7, 'weight': 2, 'conclusion': 'N'},
-    {'condition': lambda facts: facts['Surgical_intervention'] == 0, 'weight': 3, 'conclusion': 'N'},
-    {'condition': lambda facts: facts['Age'] <= 0.7, 'weight': 3, 'conclusion': 'N'}
+    {'condition': lambda facts: facts['Smoking_habit'] == -1, 'weight': 3, 'conclusion': 'N'}
+   # {#'condition': lambda facts: facts['Num_of_hours_sitting'] <= 0.7, 'weight': 2, 'conclusion': 'N'},
+    #{'condition': lambda facts: facts['Surgical_intervention'] == 0, 'weight': 3, 'conclusion': 'N'},
+   # {'condition': lambda facts: facts['Age'] <= 0.7, 'weight': 3, 'conclusion': 'N'}
 ]
 
 # Create forward and backward inference engines
